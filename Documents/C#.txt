@@ -17,9 +17,65 @@ using的用法：
       item = reader.ReadLine();
       Console.WriteLine(item);
   } 
-2、using 指令为命名空间创建别名，或导入在其他命名空间中定义的类型。
-。。。。。
+2、using 为命名空间或类型创建别名，或引入命名空间。
+  using System;
+  ///////////////
+  using Project = PC.MyCompany.Project;
 
 
 
-using static 指令导入单个类的成员。
+3、using static 无需指定类型名称即可访问其静态成员和嵌套类型。（对比上下两个代码，对Math.PI和Math.pow()的使用，无需指定类名Math)
+  using System;
+  using static System.Math;
+
+  public class Circle
+  {
+     public Circle(double radius)
+     {
+        Radius = radius;
+     }
+
+     public double Radius { get; set; }
+
+     public double Diameter
+     {
+        get { return 2 * Radius; }
+     }
+
+     public double Circumference
+     {
+        get { return 2 * Radius * PI; }
+     }
+
+     public double Area
+     {
+        get { return PI * Pow(Radius, 2); }
+     }
+  }
+////////////////////
+  using System;
+
+  public class Circle
+  {
+     public Circle(double radius)
+     {
+        Radius = radius;
+     }
+
+     public double Radius { get; set; }
+
+     public double Diameter
+     {
+        get { return 2 * Radius; }
+     }
+
+     public double Circumference
+     {
+        get { return 2 * Radius * Math.PI; }
+     }
+
+     public double Area
+     {
+        get { return Math.PI * Math.Pow(Radius, 2); }
+     }
+  }
