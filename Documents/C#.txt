@@ -1,0 +1,25 @@
+using的用法：
+
+1、using 定义一个范围，在此范围的末尾将释放对象。
+
+  using (var reader = new StringReader(manyLines))
+  {
+      string? item;
+      do {
+          item = reader.ReadLine();
+          Console.WriteLine(item);
+      } while(item != null);
+  }
+  ///////////////////////////////////或者
+  using var reader = new StringReader(manyLines);
+  string? item;
+  do {
+      item = reader.ReadLine();
+      Console.WriteLine(item);
+  } 
+2、using 指令为命名空间创建别名，或导入在其他命名空间中定义的类型。
+
+
+
+
+using static 指令导入单个类的成员。
